@@ -15,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\FiltersLayout;
@@ -209,6 +210,8 @@ class CcoResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 ViewAction::make(),
+                DeleteAction::make()
+                    ->successNotificationTitle("Hapus CCO Berhasil")
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -14,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\QueryBuilder;
@@ -33,7 +34,7 @@ class ChoResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $agent = Agent::all(['id', 'name']);
+        $agent = Agent::select('id', 'name')->where("position", "L2")->get();
         return $form
             ->schema([
                 Select::make('agentId')
@@ -213,6 +214,8 @@ class ChoResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                DeleteAction::make()
+                    ->successNotificationTitle("Hapus CCO Recording")
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

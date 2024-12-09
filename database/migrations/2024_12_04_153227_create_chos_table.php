@@ -47,6 +47,8 @@ return new class extends Migration
             $table->integer('complete_solution_status');
             $table->string('complete_solution_status_note')->nullable();
             $table->timestamps();
+
+            $table->foreign('agentId')->references('id')->on('agents');
         });
     }
 
