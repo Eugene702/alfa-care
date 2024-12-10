@@ -51,10 +51,12 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('sla_response')
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                        Select::make('sla_response')
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '10' => 10
+                            ])
                             ->required(),
                         Textarea::make('sla_response_note')
                             ->label('Catatan')
@@ -64,11 +66,13 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('ticket_closure_sla')
+                        Select::make('ticket_closure_sla')
                             ->label("SLA Closed Tiket")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '10' => 10
+                            ])
                             ->required(),
                         Textarea::make('ticket_closure_sla_note')
                             ->label('Catatan')
@@ -77,11 +81,13 @@ class ChoResource extends Resource
                     ]),
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('email_punctuation_check')
+                        Select::make('email_punctuation_check')
                             ->label("Email memakai penggunaan tanda baca yang baik")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ])
                             ->required(),
                         Textarea::make('email_punctuation_check_note')
                             ->label('Catatan')
@@ -91,11 +97,13 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('ticket_text_content')
+                        Select::make('ticket_text_content')
                             ->label("Penulisan konten Ticket di Zendesk")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ])
                             ->required(),
                         Textarea::make('ticket_text_content_note')
                             ->label('Catatan')
@@ -105,11 +113,13 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('case_linkage_check')
+                        Select::make('case_linkage_check')
                             ->label("Cek keterkaitan dengan case/tiket lain")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ])
                             ->required(),
                         Textarea::make('case_linkage_check_note')
                             ->label('Catatan')
@@ -119,11 +129,13 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('task_status_check')
+                        Select::make('task_status_check')
                             ->label("Task sudah sesuai atau belum")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ])
                             ->required(),
                         Textarea::make('task_status_check_note')
                             ->label('Catatan')
@@ -133,11 +145,13 @@ class ChoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('zendesk_category_check')
+                        Select::make('zendesk_category_check')
                             ->label("Category Ticket Zendesk sudah sesuai atau belum")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ])
                             ->required(),
                         Textarea::make('zendesk_category_check_note')
                             ->label('Catatan')
@@ -146,11 +160,13 @@ class ChoResource extends Resource
                     ]),
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('is_language_ethical')
+                        Select::make('is_language_ethical')
                             ->label("Menggunakan etika dan bahasa Service yang baik")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '15' => 15
+                            ])
                             ->required(),
                         Textarea::make('is_language_ethical_note')
                             ->label('Catatan')
@@ -159,11 +175,13 @@ class ChoResource extends Resource
                     ]),
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('analysis_correctness')
+                        Select::make('analysis_correctness')
                             ->label("Analisa yang benar")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '20' => 20
+                            ])
                             ->required(),
                         Textarea::make('analysis_correctness_note')
                             ->label('Catatan')
@@ -172,11 +190,13 @@ class ChoResource extends Resource
                     ]),
                 Grid::make(2)
                     ->schema([
-                        TextInput::make('complete_solution_status')
+                        Select::make('complete_solution_status')
                             ->label("Solusi yg diberikan lengkap dan tuntas")
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2)
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '20' => 20
+                            ])
                             ->required(),
                         Textarea::make('complete_solution_status_note')
                             ->label('Catatan')

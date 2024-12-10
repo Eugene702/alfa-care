@@ -64,7 +64,11 @@ class AgentRecordView extends Component
             $persentasePerBulan[$month] = ($totalRataRataSemuaSample / $avgBobot) * 100;
         }
 
-        return $persentasePerBulan;
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            array_push($monthlyData, round($persentasePerBulan[$i] ?? 0, 1));
+        }
+        return $monthlyData;
     }
 
     private function calculateCcoPhone()
@@ -98,7 +102,11 @@ class AgentRecordView extends Component
             $persentasePerBulan[$month] = ($totalRataRataSemuaSample / $avgBobot) * 100;
         }
 
-        return $persentasePerBulan;
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            array_push($monthlyData, round($persentasePerBulan[$i] ?? 0, 1));
+        }
+        return $monthlyData;
     }
 
     private function calculateCho()
@@ -132,7 +140,11 @@ class AgentRecordView extends Component
             $persentasePerBulan[$month] = ($totalRataRataSemuaSample / $avgBobot) * 100;
         }
 
-        return $persentasePerBulan;
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            array_push($monthlyData, round($persentasePerBulan[$i] ?? 0, 1));
+        }
+        return $monthlyData;
     }
 
     public function render()

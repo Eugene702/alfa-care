@@ -50,13 +50,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('sla_response')
+                        Forms\Components\Select::make('sla_response')
                             ->label('SLA Response')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '10' => 10
+                            ]),
 
                         Textarea::make('sla_response_note')
                             ->label('Catatan')
@@ -65,13 +66,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('email_format_valid')
+                        Forms\Components\Select::make('email_format_valid')
                             ->label('Email memakai penggunaan tanda baca yang baik')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('email_format_valid_note')
                             ->label('Catatan')
@@ -81,13 +83,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('zendesk_ticket_content')
+                        Forms\Components\Select::make('zendesk_ticket_content')
                             ->label('Penulisan konten Ticket di Zendesk')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('zendesk_ticket_content_note')
                             ->label('Catatan')
@@ -96,13 +99,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('related_case_check')
+                        Forms\Components\Select::make('related_case_check')
                             ->label('Cek keterkaitan dengan case/tiket lain')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('related_case_check_note')
                             ->label('Catatan')
@@ -111,13 +115,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('task_status_check')
+                        Forms\Components\Select::make('task_status_check')
                             ->label('Task sudah sesuai atau belum')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('task_status_check_note')
                             ->label('Catatan')
@@ -126,13 +131,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('category_validation_status')
+                        Forms\Components\Select::make('category_validation_status')
                             ->label('Category Ticket Zendesk sudah sesuai atau belum')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('category_validation_status_note')
                             ->label('Catatan')
@@ -141,13 +147,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('service_language_quality')
+                        Forms\Components\Select::make('service_language_quality')
                             ->label('CCO menggunakan etika dan bahasa Service yang baik')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '5' => 5
+                            ]),
 
                         Textarea::make('service_language_quality_note')
                             ->label('Catatan')
@@ -156,13 +163,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('cso_analysis_completeness')
+                        Forms\Components\Select::make('cso_analysis_completeness')
                             ->label('Analisa CSO sudah lengkap atau belum')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '25' => 25
+                            ]),
 
                         Textarea::make('cso_analysis_completeness_note')
                             ->label('Catatan')
@@ -171,13 +179,14 @@ class CcoResource extends Resource
 
                 Grid::make(2)
                     ->schema([
-                        Forms\Components\TextInput::make('solution_fulfillment')
+                        Forms\Components\Select::make('solution_fulfillment')
                             ->label('Solusi yg diberikan lengkap dan tuntas')
                             ->required()
-                            ->maxLength(255)
-                            ->integer()
-                            ->minValue(1)
-                            ->maxValue(2),
+                            ->required()
+                            ->options([
+                                '0' => 0,
+                                '25' => 25
+                            ]),
 
                         Textarea::make('solution_fulfillment_note')
                             ->label('Catatan')
