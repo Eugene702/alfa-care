@@ -19,7 +19,7 @@ class ChoPerMonthWidget extends ChartWidget
             ->with('cho')
             ->get();
 
-        $avgBobot = 5;
+        $avgBobot = 10;
         $groupByMonth = $agents->groupBy(function ($agent) {
             return $agent->created_at->format('m');
         });

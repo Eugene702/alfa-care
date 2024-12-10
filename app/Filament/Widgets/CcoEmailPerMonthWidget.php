@@ -19,7 +19,7 @@ class CcoEmailPerMonthWidget extends ChartWidget
             ->with('cco')
             ->get();
 
-        $avgBobot = 5;
+        $avgBobot = 11;
         $groupByMonth = $agents->groupBy(function ($agent) {
             return $agent->created_at->format('m');
         });

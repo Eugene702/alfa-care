@@ -16,4 +16,8 @@ class Report extends Page
                 ->requiresConfirmation()
         ];
     }
+
+    protected function test(){
+        return 'test';
+    }
 }
