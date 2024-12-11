@@ -153,7 +153,7 @@ class CcoResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '5' => 5
+                                '15' => 15
                             ]),
 
                         Textarea::make('service_language_quality_note')

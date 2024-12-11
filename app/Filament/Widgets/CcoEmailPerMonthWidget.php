@@ -58,7 +58,7 @@ class CcoEmailPerMonthWidget extends ChartWidget
             'labels' => ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
             'datasets' => [
                 [
-                    'label' => 'Persentase Email(L2)',
+                    'label' => 'Persentase Email(L1)',
                     'data' => $monthlyData,
                 ]
             ]
