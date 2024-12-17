@@ -34,7 +34,7 @@ class CcoRecordingResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $agent = Agent::all(['id', 'name']);
+        $agent = Agent::select('id', 'name')->where("position", "L1")->get();
         return $form
             ->schema([
                 Select::make('agentId')
@@ -150,7 +150,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 4
+                                '4' => 4
                             ]),
 
                         Textarea::make('cco_good_speaking_speed_articulation_volume_note')
@@ -182,7 +182,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 10
+                                '10' => 10
                             ]),
 
                         Textarea::make('cco_good_service_ethics_language_note')
@@ -198,7 +198,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 10
+                                '10' => 10
                             ]),
 
                         Textarea::make('cco_confirms_customer_complaint_note')
@@ -214,7 +214,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 5
+                                '5' => 5
                             ]),
 
                         Textarea::make('invalid_case_type_category_note')
@@ -230,7 +230,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 5
+                                '5' => 5
                             ]),
 
                         Textarea::make('task_suitability_note')
@@ -246,7 +246,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 5
+                                '5' => 5
                             ]),
 
                         Textarea::make('other_zendesk_note')
@@ -278,7 +278,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 6
+                                '6' => 6
                             ]),
 
                         Textarea::make('cco_does_not_reask_customer_info_note')
@@ -294,7 +294,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 3
+                                '3' => 3
                             ]),
 
                         Textarea::make('cco_explores_customer_info_needs_note')
@@ -326,7 +326,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 15
+                                '15' => 15
                             ]),
 
                         Textarea::make('cco_explanation_accuracy_complete_note')
@@ -342,7 +342,7 @@ class CcoRecordingResource extends Resource
                             ->required()
                             ->options([
                                 '0' => 0,
-                                '2' => 15
+                                '15' => 15
                             ]),
 
                         Textarea::make('cco_provides_complete_solutions_note')

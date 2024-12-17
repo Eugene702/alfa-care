@@ -19,9 +19,9 @@ class FinalPercentWidget extends ChartWidget
         $totalCho = array_sum($percentCho);
         $total = $totalCcoEmail + $totalCcoPhone + $totalCho;
         $persentasePieData = [
-            'CCO Email' => $total > 0 ? ($totalCcoEmail / $total) * 100 : 0,
-            'CCO Telepon' => $total > 0 ? ($totalCcoPhone / $total) * 100 : 0,
-            'CHO (L2)' => $total > 0 ? ($totalCho / $total) * 100 : 0,
+            'CCO Email' => round(($total > 0 ? ($totalCcoEmail / $total) * 100 : 0), 1),
+            'CCO Telepon' => round(($total > 0 ? ($totalCcoPhone / $total) * 100 : 0), 1),
+            'CHO (L2)' => round(($total > 0 ? ($totalCho / $total) * 100 : 0), 1),
         ];
 
         return [

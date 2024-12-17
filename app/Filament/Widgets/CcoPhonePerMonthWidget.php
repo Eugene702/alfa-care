@@ -36,7 +36,7 @@ class CcoPhonePerMonthWidget extends ChartWidget
                     $filteredData = $data->filter(function ($value, $key) {
                         return is_numeric($value);
                     });
-                    $avgSample = $filteredData->avg();
+                    $avgSample = round($filteredData->avg(), 0);
                     $totalRataRataSemuaSample += $avgSample;
                     $totalSampleCount++;
                 }
@@ -46,7 +46,7 @@ class CcoPhonePerMonthWidget extends ChartWidget
                 $totalRataRataSemuaSample /= $totalSampleCount;
             }
 
-            $persentasePerBulan[$month] = ($totalRataRataSemuaSample / $avgBobot) * 100;
+            $persentasePerBulan[$month] = round((($totalRataRataSemuaSample / $avgBobot) * 100), 1);
         }
 
         $monthlyData = [];

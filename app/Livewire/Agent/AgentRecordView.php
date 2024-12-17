@@ -51,7 +51,7 @@ class AgentRecordView extends Component
                     $filteredData = $data->filter(function ($value, $key) {
                         return is_numeric($value);
                     });
-                    $avgSample = $filteredData->avg();
+                    $avgSample = round  ($filteredData->avg());
                     $totalRataRataSemuaSample += $avgSample;
                     $totalSampleCount++;
                 }
@@ -89,7 +89,7 @@ class AgentRecordView extends Component
                     $filteredData = $data->filter(function ($value, $key) {
                         return is_numeric($value);
                     });
-                    $avgSample = $filteredData->avg();
+                    $avgSample = round  ($filteredData->avg());
                     $totalRataRataSemuaSample += $avgSample;
                     $totalSampleCount++;
                 }
@@ -127,7 +127,7 @@ class AgentRecordView extends Component
                     $filteredData = $data->filter(function ($value, $key) {
                         return is_numeric($value);
                     });
-                    $avgSample = $filteredData->avg();
+                    $avgSample = round  ($filteredData->avg());
                     $totalRataRataSemuaSample += $avgSample;
                     $totalSampleCount++;
                 }
@@ -160,6 +160,7 @@ class AgentRecordView extends Component
         } else {
             $this->choData = Agent::where("id", $this->agent->id)
                 ->with('cho')
+                ->whereYear('created_at', date('Y'))
                 ->get();
 
             $this->cho = $this->calculateCho();

@@ -35,7 +35,7 @@ class CcoResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $agent = Agent::all(['id', 'name']);
+        $agent = Agent::select('id', 'name')->where("position", "L1")->get();
         return $form
             ->schema([
                 Forms\Components\Select::make('agentId')

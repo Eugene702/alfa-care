@@ -35,7 +35,8 @@ class CcoEmailPerMonthWidget extends ChartWidget
                     $filteredData = $data->filter(function ($value, $key) {
                         return is_numeric($value);
                     });
-                    $avgSample = $filteredData->avg();
+
+                    $avgSample = round($filteredData->avg(), 0);
                     $totalRataRataSemuaSample += $avgSample;
                     $totalSampleCount++;
                 }
