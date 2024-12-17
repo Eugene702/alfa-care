@@ -7,6 +7,7 @@ use App\Filament\Resources\ChoResource\RelationManagers;
 use App\Models\Agent;
 use App\Models\Cho;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -49,160 +50,169 @@ class ChoResource extends Resource
                 TextInput::make('ticket')
                     ->required(),
 
-                Grid::make(2)
+                Fieldset::make("SERVICE LEVEL")
                     ->schema([
-                        Select::make('sla_response')
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '10' => 10
-                            ])
-                            ->required(),
-                        Textarea::make('sla_response_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('sla_response')
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '10' => 10
+                                    ])
+                                    ->required(),
+                                Textarea::make('sla_response_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('ticket_closure_sla')
-                            ->label("SLA Closed Tiket")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '10' => 10
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('ticket_closure_sla')
+                                    ->label("SLA Closed Tiket")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '10' => 10
+                                    ])
+                                    ->required(),
+                                Textarea::make('ticket_closure_sla_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
                             ])
-                            ->required(),
-                        Textarea::make('ticket_closure_sla_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
                     ]),
-                Grid::make(2)
+                Fieldset::make("SOFT SKILL")
                     ->schema([
-                        Select::make('email_punctuation_check')
-                            ->label("Email memakai penggunaan tanda baca yang baik")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
-                            ])
-                            ->required(),
-                        Textarea::make('email_punctuation_check_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('email_punctuation_check')
+                                    ->label("Email memakai penggunaan tanda baca yang baik")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ])
+                                    ->required(),
+                                Textarea::make('email_punctuation_check_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('ticket_text_content')
-                            ->label("Penulisan konten Ticket di Zendesk")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
-                            ])
-                            ->required(),
-                        Textarea::make('ticket_text_content_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('ticket_text_content')
+                                    ->label("Penulisan konten Ticket di Zendesk")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ])
+                                    ->required(),
+                                Textarea::make('ticket_text_content_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('case_linkage_check')
-                            ->label("Cek keterkaitan dengan case/tiket lain")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
-                            ])
-                            ->required(),
-                        Textarea::make('case_linkage_check_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('case_linkage_check')
+                                    ->label("Cek keterkaitan dengan case/tiket lain")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ])
+                                    ->required(),
+                                Textarea::make('case_linkage_check_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('task_status_check')
-                            ->label("Task sudah sesuai atau belum")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
-                            ])
-                            ->required(),
-                        Textarea::make('task_status_check_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('task_status_check')
+                                    ->label("Task sudah sesuai atau belum")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ])
+                                    ->required(),
+                                Textarea::make('task_status_check_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('zendesk_category_check')
-                            ->label("Category Ticket Zendesk sudah sesuai atau belum")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('zendesk_category_check')
+                                    ->label("Category Ticket Zendesk sudah sesuai atau belum")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ])
+                                    ->required(),
+                                Textarea::make('zendesk_category_check_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('is_language_ethical')
+                                    ->label("Menggunakan etika dan bahasa Service yang baik")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '15' => 15
+                                    ])
+                                    ->required(),
+                                Textarea::make('is_language_ethical_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
                             ])
-                            ->required(),
-                        Textarea::make('zendesk_category_check_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
                     ]),
-                Grid::make(2)
+                Fieldset::make("HARD SKILL")
                     ->schema([
-                        Select::make('is_language_ethical')
-                            ->label("Menggunakan etika dan bahasa Service yang baik")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '15' => 15
-                            ])
-                            ->required(),
-                        Textarea::make('is_language_ethical_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
-                Grid::make(2)
-                    ->schema([
-                        Select::make('analysis_correctness')
-                            ->label("Analisa yang benar")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '20' => 20
-                            ])
-                            ->required(),
-                        Textarea::make('analysis_correctness_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
-                Grid::make(2)
-                    ->schema([
-                        Select::make('complete_solution_status')
-                            ->label("Solusi yg diberikan lengkap dan tuntas")
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '20' => 20
-                            ])
-                            ->required(),
-                        Textarea::make('complete_solution_status_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                            ->nullable()
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('analysis_correctness')
+                                    ->label("Analisa yang benar")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '20' => 20
+                                    ])
+                                    ->required(),
+                                Textarea::make('analysis_correctness_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('complete_solution_status')
+                                    ->label("Solusi yg diberikan lengkap dan tuntas")
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '20' => 20
+                                    ])
+                                    ->required(),
+                                Textarea::make('complete_solution_status_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                                    ->nullable()
+                            ]),
+                    ])
             ]);
     }
 

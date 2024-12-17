@@ -7,6 +7,7 @@ use App\Filament\Resources\CcoRecordingResource\RelationManagers;
 use App\Models\Agent;
 use App\Models\CcoRecording;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -47,340 +48,352 @@ class CcoRecordingResource extends Resource
                 TextInput::make('sample_name')
                     ->required(),
 
-                Grid::make(2)
+                Fieldset::make('SYSTEM & PROCEDURE')
                     ->schema([
-                        Select::make('cco_correct_opening_greeting')
-                            ->label('CCO menyebutkan Salam pembuka dengan baik & benar')
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_correct_opening_greeting')
+                                    ->label('CCO menyebutkan Salam pembuka dengan baik & benar')
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
+
+                                Textarea::make('cco_correct_opening_greeting_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_correct_opening_greeting_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_asks_customer_name')
+                                    ->label('CCO menanyakan nama pelanggan')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_asks_customer_name')
-                            ->label('CCO menanyakan nama pelanggan')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                                Textarea::make('cco_asks_customer_name_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_asks_customer_name_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_confirms_service_adequacy')
+                                    ->label('CCO mengkonfirmasi kecukupan pelayanan')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_confirms_service_adequacy')
-                            ->label('CCO mengkonfirmasi kecukupan pelayanan')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                                Textarea::make('cco_confirms_service_adequacy_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_confirms_service_adequacy_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_correct_closing_greeting')
+                                    ->label('CCO menyebutkan Salam penutup dengan baik dan benar')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_correct_closing_greeting')
-                            ->label('CCO menyebutkan Salam penutup dengan baik dan benar')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                                Textarea::make('cco_correct_closing_greeting_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_correct_closing_greeting_note')
-                            ->label('Catatan')
-                            ->rows(5)
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('hold_line')
+                                    ->label('Hold line')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
+
+                                Textarea::make('hold_line_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                            ]),
                     ]),
 
-                Grid::make(2)
+                Fieldset::make("SOFT SKILL")
                     ->schema([
-                        Select::make('hold_line')
-                            ->label('Hold line')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_good_tone_and_intonation')
+                                    ->label('CCO memiliki nada suara yang baik dan intonasi yang baik')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
+
+                                Textarea::make('cco_good_tone_and_intonation_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('hold_line_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_good_speaking_speed_articulation_volume')
+                                    ->label('CCO memiliki kecepatan berbicara yang baik dan artikulasi suara yang baik (tidak terlalu cepat/lambat) dan volume suara yg baik (tdk terlalu keras/pelan)')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '4' => 4
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_good_tone_and_intonation')
-                            ->label('CCO memiliki nada suara yang baik dan intonasi yang baik')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                                Textarea::make('cco_good_speaking_speed_articulation_volume_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_good_tone_and_intonation_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_mentions_customer_name')
+                                    ->label('CCO menyebutkan nama pelanggan pada bebarapa kesempatan')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_good_speaking_speed_articulation_volume')
-                            ->label('CCO memiliki kecepatan berbicara yang baik dan artikulasi suara yang baik (tidak terlalu cepat/lambat) dan volume suara yg baik (tdk terlalu keras/pelan)')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '4' => 4
+                                Textarea::make('cco_mentions_customer_name_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_good_speaking_speed_articulation_volume_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_good_service_ethics_language')
+                                    ->label('CCO menggunakan Etika dan bahasa service yang baik')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '10' => 10
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_mentions_customer_name')
-                            ->label('CCO menyebutkan nama pelanggan pada bebarapa kesempatan')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                                Textarea::make('cco_good_service_ethics_language_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_mentions_customer_name_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
-                    
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_good_service_ethics_language')
-                            ->label('CCO menggunakan Etika dan bahasa service yang baik')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '10' => 10
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_confirms_customer_complaint')
+                                    ->label('CCO melakukan konfirmasi informasi/keluhan yang disampaikan pelanggan (Rangkuman)')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '10' => 10
+                                    ]),
+
+                                Textarea::make('cco_confirms_customer_complaint_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_good_service_ethics_language_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('invalid_case_type_category')
+                                    ->label('Salah Case type/Category')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_confirms_customer_complaint')
-                            ->label('CCO melakukan konfirmasi informasi/keluhan yang disampaikan pelanggan (Rangkuman)')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '10' => 10
+                                Textarea::make('invalid_case_type_category_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_confirms_customer_complaint_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('task_suitability')
+                                    ->label('Task sudah sesuai atau belum')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('invalid_case_type_category')
-                            ->label('Salah Case type/Category')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
+                                Textarea::make('task_suitability_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('invalid_case_type_category_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('other_zendesk')
+                                    ->label('Other Zendesk …..')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '5' => 5
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('task_suitability')
-                            ->label('Task sudah sesuai atau belum')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
+                                Textarea::make('other_zendesk_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('task_suitability_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_gives_positive_statements')
+                                    ->label('CCO memberikan pernyataan pendek positif saat pelanggan berbicara (empati)')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('other_zendesk')
-                            ->label('Other Zendesk …..')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '5' => 5
+                                Textarea::make('cco_gives_positive_statements_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('other_zendesk_note')
-                            ->label('Catatan')
-                            ->rows(5)
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_does_not_reask_customer_info')
+                                    ->label('CCO tidak bertanya kembali mengenai sesuatu hal yang telah pelanggan sebutkan (CCO tidak mendengarkan dengan baik)')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '6' => 6
+                                    ]),
+
+                                Textarea::make('cco_does_not_reask_customer_info_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                            ]),
                     ]),
 
-                Grid::make(2)
+                Fieldset::make("HARD SKILL")
                     ->schema([
-                        Select::make('cco_gives_positive_statements')
-                            ->label('CCO memberikan pernyataan pendek positif saat pelanggan berbicara (empati)')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_explores_customer_info_needs')
+                                    ->label('CCO yang melayani pelanggan menggali kebutuhan informasi')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '3' => 3
+                                    ]),
+
+                                Textarea::make('cco_explores_customer_info_needs_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_gives_positive_statements_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('no_service_transfer')
+                                    ->label('Tidak melakukan Pengalihan Layanan')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_does_not_reask_customer_info')
-                            ->label('CCO tidak bertanya kembali mengenai sesuatu hal yang telah pelanggan sebutkan (CCO tidak mendengarkan dengan baik)')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '6' => 6
+                                Textarea::make('no_service_transfer_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_does_not_reask_customer_info_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_explanation_accuracy_complete')
+                                    ->label('Penjelasan yang diberikan oleh CCO sesuai dengan sumber informasi lainnya (Accuracy), lengkap dan dengan analisa yang benar ')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '15' => 15
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_explores_customer_info_needs')
-                            ->label('CCO yang melayani pelanggan menggali kebutuhan informasi')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '3' => 3
+                                Textarea::make('cco_explanation_accuracy_complete_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('cco_explores_customer_info_needs_note')
-                            ->label('Catatan')
-                            ->rows(5)
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_provides_complete_solutions')
+                                    ->label('CCO memberikan solusi lengkap dan tuntas ')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '15' => 15
+                                    ]),
+
+                                Textarea::make('cco_provides_complete_solutions_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
+                            ]),
                     ]),
 
-                Grid::make(2)
+                Fieldset::make("ENJOYING")
                     ->schema([
-                        Select::make('no_service_transfer')
-                            ->label('Tidak melakukan Pengalihan Layanan')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('cco_clear_voice_quality')
+                                    ->label('Suara CCO terdengar dengan baik (tidak kemerosok, tidak berdengung)')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
+
+                                Textarea::make('cco_clear_voice_quality_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
 
-                        Textarea::make('no_service_transfer_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                        Grid::make(2)
+                            ->schema([
+                                Select::make('no_background_noise')
+                                    ->label('Tidak terdengar suara lainnya sebagai suara latar')
+                                    ->required()
+                                    ->required()
+                                    ->options([
+                                        '0' => 0,
+                                        '2' => 2
+                                    ]),
 
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_explanation_accuracy_complete')
-                            ->label('Penjelasan yang diberikan oleh CCO sesuai dengan sumber informasi lainnya (Accuracy), lengkap dan dengan analisa yang benar ')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '15' => 15
+                                Textarea::make('no_background_noise_note')
+                                    ->label('Catatan')
+                                    ->rows(5)
                             ]),
-
-                        Textarea::make('cco_explanation_accuracy_complete_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
-
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_provides_complete_solutions')
-                            ->label('CCO memberikan solusi lengkap dan tuntas ')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '15' => 15
-                            ]),
-
-                        Textarea::make('cco_provides_complete_solutions_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
-
-                Grid::make(2)
-                    ->schema([
-                        Select::make('cco_clear_voice_quality')
-                            ->label('Suara CCO terdengar dengan baik (tidak kemerosok, tidak berdengung)')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
-                            ]),
-
-                        Textarea::make('cco_clear_voice_quality_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
-
-                Grid::make(2)
-                    ->schema([
-                        Select::make('no_background_noise')
-                            ->label('Tidak terdengar suara lainnya sebagai suara latar')
-                            ->required()
-                            ->required()
-                            ->options([
-                                '0' => 0,
-                                '2' => 2
-                            ]),
-
-                        Textarea::make('no_background_noise_note')
-                            ->label('Catatan')
-                            ->rows(5)
-                    ]),
+                    ])
             ]);
     }
 
@@ -388,7 +401,7 @@ class CcoRecordingResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn  ::make('ticket')
+                TextColumn::make('ticket')
                     ->searchable(),
                 TextColumn::make('sample_name')
                     ->searchable(),
